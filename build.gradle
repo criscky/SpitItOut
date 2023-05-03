@@ -2,6 +2,8 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '5.+'
     id 'org.spongepowered.mixin'
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id 'com.modrinth.minotaur' version "2.+"
 }
 
 version = "${version}"
@@ -13,7 +15,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings  channel: "${mcp_channel}", version: "${mcp_mappings}"
+    mappings channel: "${mcp_channel}", version: "${mcp_mappings}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -154,6 +156,9 @@ publishing {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+apply from: 'gradle/curseforge.gradle'
+apply from: 'gradle/modrinth.gradle'
 
 ////////////////
 // IntelliJ Project Import

@@ -23,4 +23,16 @@ public class ConnectionMixin {
 		SpitItOut.logThrowable(throwable);
 	}
 
+	@Inject(method = "exceptionCaught(Lio/netty/channel/ChannelHandlerContext;Ljava/lang/Throwable;)V",
+			at = @At(
+					value = "INVOKE",
+					target = "Lnet/minecraft/network/Connection;disconnect(Lnet/minecraft/network/chat/Component;)V",
+					shift = At.Shift.BEFORE,
+					ordinal = 1
+			)
+	)
+	public void spititout_exceptionCaught2(ChannelHandlerContext context, Throwable throwable, CallbackInfo ci) {
+		SpitItOut.logThrowable(throwable);
+	}
+
 }

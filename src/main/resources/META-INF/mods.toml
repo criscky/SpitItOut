@@ -1,14 +1,13 @@
 modLoader="javafml"
-loaderVersion="[41,)"
+loaderVersion="[36,)"
 issueTrackerURL="https://github.com/Mrbysco/SpitItOut"
 license="MIT"
 [[mods]]
 modId="spititout"
 version="${file.jarVersion}"
 displayName="Spit It Out"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/statues"
-authors="Mrbysco, ShyNieke"
+displayURL="https://github.com/criscky/SpitItOut/issues"
+authors="Criscky, Mrbysco, ShyNieke"
 description='''
 Stop swallowing the exception and spit it out!
 '''
-displayTest="IGNORE_ALL_VERSION"
